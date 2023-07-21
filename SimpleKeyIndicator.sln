@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleKeyIndicator.Indicator", "SimpleKeyIndicator.Indicator\SimpleKeyIndicator.Indicator.csproj", "{286F83FC-E697-4614-BA4F-BC3EA73D7BED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleKeyIndicator.Configurator", "SimpleKeyIndicator.Configurator\SimpleKeyIndicator.Configurator.csproj", "{5CB67213-5377-400E-99DE-3B13AC19C2FB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{286F83FC-E697-4614-BA4F-BC3EA73D7BED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{286F83FC-E697-4614-BA4F-BC3EA73D7BED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{286F83FC-E697-4614-BA4F-BC3EA73D7BED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{286F83FC-E697-4614-BA4F-BC3EA73D7BED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CB67213-5377-400E-99DE-3B13AC19C2FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CB67213-5377-400E-99DE-3B13AC19C2FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CB67213-5377-400E-99DE-3B13AC19C2FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CB67213-5377-400E-99DE-3B13AC19C2FB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
