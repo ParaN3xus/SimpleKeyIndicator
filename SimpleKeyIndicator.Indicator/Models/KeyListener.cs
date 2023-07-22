@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using SharpHook;
 using SharpHook.Native;
 
@@ -6,11 +7,9 @@ namespace SimpleKeyIndicator.Indicator.Models;
 
 public class KeyListener
 {
-    public delegate void KeyChangedNotify();
-    
     private readonly TaskPoolGlobalHook _globalHook;
-    private readonly Dictionary<KeyCode, KeyChangedNotify> _keyboardNotifies = new();
-    private readonly Dictionary<MouseButton, KeyChangedNotify> _mouseNotifies = new();
+    private readonly Dictionary<KeyCode, EventHandler> _keyboardNotifies = new();
+    private readonly Dictionary<MouseButton, EventHandler> _mouseNotifies = new();
 
     public KeyListener()
     {
@@ -27,12 +26,12 @@ public class KeyListener
         _globalHook.RunAsync();
     }
 
-    public void BindEvent(KeyCode keyCode, KeyChangedNotify func)
+    public void BindEvent(KeyCode keyCode, EventHandler func)
     {
         _keyboardNotifies[keyCode] = func;
     }
 
-    public void BindEvent(MouseButton mouseButton, KeyChangedNotify func)
+    public void BindEvent(MouseButton mouseButton, EventHandler func)
     {
         _mouseNotifies[mouseButton] = func;
     }
@@ -45,7 +44,7 @@ public class KeyListener
             {
                 if (_keyboardNotifies.TryGetValue(kArgs.Data.KeyCode, out var notify))
                 {
-                    notify();
+                    notify(sender, kArgs);
                 }
                 
                 break;
@@ -54,7 +53,7 @@ public class KeyListener
             {
                 if (_mouseNotifies.TryGetValue(mArgs.Data.Button, out var notify))
                 {
-                    notify();
+                    notify(sender, mArgs);
                 }
                 
                 break;
