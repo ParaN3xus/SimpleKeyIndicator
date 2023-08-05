@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Avalonia.Threading;
 using SharpHook;
 using SharpHook.Native;
 
@@ -48,7 +49,7 @@ public class KeyListener
             {
                 if (_keyboardPressedNotifies.TryGetValue(kArgs.Data.KeyCode, out var notify))
                 {
-                    notify(sender, kArgs);
+                    Dispatcher.UIThread.InvokeAsync(() => { notify(sender, kArgs); });
                 }
                 
                 break;
@@ -57,7 +58,7 @@ public class KeyListener
             {
                 if (_mousePressedNotifies.TryGetValue(mArgs.Data.Button, out var notify))
                 {
-                    notify(sender, mArgs);
+                    Dispatcher.UIThread.InvokeAsync(() => { notify(sender, mArgs); });
                 }
                 
                 break;
@@ -73,7 +74,7 @@ public class KeyListener
             {
                 if (_keyboardReleasedNotifies.TryGetValue(kArgs.Data.KeyCode, out var notify))
                 {
-                    notify(sender, kArgs);
+                    Dispatcher.UIThread.InvokeAsync(() => { notify(sender, kArgs); });
                 }
                 
                 break;
@@ -82,7 +83,7 @@ public class KeyListener
             {
                 if (_mouseReleasedNotifies.TryGetValue(mArgs.Data.Button, out var notify))
                 {
-                    notify(sender, mArgs);
+                    Dispatcher.UIThread.InvokeAsync(() => { notify(sender, mArgs); });
                 }
                 
                 break;
