@@ -6,8 +6,10 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="SimpleKeyIndicator.Indicator.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
+        Background="White"
         Icon="/Assets/avalonia-logo.ico"
-        Title="SimpleKeyIndicator.Indicator">
+        Title="SimpleKeyIndicator.Indicator"
+        >
 
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
@@ -15,6 +17,10 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    <Canvas Margin="0">
+        <ItemsControl ItemsSource="{Binding Keys}">
+            
+        </ItemsControl>
+    </Canvas>
 
 </Window>
